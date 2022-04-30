@@ -7,7 +7,9 @@ const Layout = ({ children }) => {
       className="flex flex-col pt-10 px-4 items-center bg-no-repeat bg-cover bg-center"
       style={{
         backgroundImage: 'url("/totoro025.jpeg")',
-        maxHeight: "100%",
+        maxHeight: "-webkit-fill-available",
+        height: "100vh",
+        minHeight: "-webkit-fill-available",
         overflow: "hidden",
       }}
     >
