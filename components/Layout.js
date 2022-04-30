@@ -4,7 +4,7 @@ import { Input, Row, Col, Button } from "antd";
 const Layout = ({ children }) => {
   return (
     <div
-      className="flex flex-col pt-10 px-4 items-center h-screen bg-no-repeat bg-cover bg-center"
+      className="flex flex-col pt-10 px-4 items-center bg-no-repeat bg-cover bg-center"
       style={{
         backgroundImage: 'url("/totoro025.jpeg")',
         maxHeight: "100%",
@@ -56,8 +56,12 @@ const Layout = ({ children }) => {
         </Row>
       </div>
       <div
-        className="overflow-auto mt-28 mx-2 w-full hiddenScrollbar"
-        style={{ height: "calc(100%)" }}
+        className="overflow-auto hiddenScrollbar"
+        style={{
+          height: "calc(100%)",
+          width: "calc(100% - 40px)",
+          margin: "112px 10px 0px 10px",
+        }}
       >
         {children}
       </div>
