@@ -3,6 +3,7 @@ import { Input, Row, Col, Button } from "antd";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import Items from "../api/items.json";
+import Layout from "../components/Layout";
 
 export default function Home() {
   const [items, setItems] = useState(Items?.items);
@@ -25,53 +26,8 @@ export default function Home() {
         <link rel="icon" href="/http.png" />
       </Head>
 
-      <div className="flex flex-col h-screen pt-10 px-4 items-center">
-        <Row>
-          <p className="font-bold text-white text-3xl drop-shadow-lg">
-            ✨ &nbsp; Linkies &nbsp; ✨
-          </p>
-        </Row>
-        <Row className="w-full drop-shadow-lg mt-5">
-          <Col xs={18} sm={18} md={20} lg={20}>
-            <Input
-              // placeholder="Find items.."s
-              className="w-full pl-5 rounded-l-full border-r-0 font-semibold"
-              style={{
-                backgroundColor: "#E3D27C",
-                borderColor: "#E3D27C",
-                color: "#193E34",
-              }}
-              onChange={(e) => {
-                let a;
-
-                if (e?.target?.value === "") {
-                  a = Items?.items;
-                } else {
-                  a = items?.filter((x) =>
-                    x?.name?.toLowerCase()?.includes(e?.target?.value)
-                  );
-                }
-                setItems(a);
-              }}
-            />
-          </Col>
-          <Col xs={6} sm={6} md={4} lg={4}>
-            <Button
-              className="w-full rounded-r-full border-l-0 font-semibold text-right pr-10"
-              style={{
-                backgroundColor: "#E3D27C",
-                borderColor: "#E3D27C",
-                color: "#193E34",
-              }}
-            >
-              Search
-            </Button>
-          </Col>
-        </Row>
-        <Row
-          className="mt-5 w-full overflow-scroll hiddenScrollbar"
-          gutter={10}
-        >
+      <Layout>
+        <Row gutter={10}>
           {items?.map((e) => {
             return (
               <Col xs={24} sm={24} md={8} lg={8}>
@@ -96,7 +52,7 @@ export default function Home() {
             );
           })}
         </Row>
-      </div>
+      </Layout>
     </div>
   );
 }

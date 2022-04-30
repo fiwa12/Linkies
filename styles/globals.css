@@ -32,3 +32,9 @@ a {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
+
+.heightWebkit {
+  min-height: -webkit-fill-available;
+  overflow-y: hidden;
+  height: 100%;
+}
