@@ -28,18 +28,24 @@ export default function Home() {
 
       <Layout>
         <Row gutter={10}>
-          {items?.map((e) => {
+          {items?.map((e, index) => {
             return (
               <Col xs={24} sm={24} md={8} lg={8}>
                 <div
-                  className="mb-5 py-2 px-5 drop-shadow-lg rounded-full opacity-80"
-                  style={{ backgroundColor: "#A0BF78" }}
-                  onClick={() => router.push(`${e?.link}`)}
+                  className="mb-5 py-2 px-5 drop-shadow-lg rounded-full bg-[#162E2D]"
+                  onClick={() =>
+                    router.push(
+                      {
+                        pathname: `/product/${index}`,
+                        query: e,
+                      },
+                      `/product/${index}`
+                    )
+                  }
                 >
                   <p
-                    className="opacity-100 font-bold text-center"
+                    className="opacity-100 font-bold text-center text-white"
                     style={{
-                      color: "#193E34",
                       textOverflow: "ellipsis",
                       whiteSpace: "nowrap",
                       overflow: "hidden",
